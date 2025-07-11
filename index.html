@@ -540,17 +540,126 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Hi, I'm <span style="color: var(--accent-color);">Nqubeko Funda</span></h1>
-            <p>AI/ML Engineer | Network Engineer | Problem Solver</p>
-            <p>Building intelligent solutions to complex problems with machine learning and AI</p>
-            <div style="margin-top: 30px;">
-                <a href="#projects" class="btn">View My Work</a>
-                <a href="#contact" class="btn" style="background-color: transparent; border: 2px solid var(--accent-color); color: white; margin-left: 15px;">Contact Me</a>
-            </div>
-        </div>
+    
     </section>
+    <section class="hero" id="home">
+    <div class="hero-content">
+        <h1 class="typing-glitch">Hi, I'm <span class="typing-accent" style="color: var(--accent-color);"></span></h1>
+        <p class="typing-subtitle"></p>
+        <p class="typing-subtitle-2"></p>
+        <div style="margin-top: 30px;">
+            <a href="#projects" class="btn glitch-btn">View My Work</a>
+            <a href="#contact" class="btn glitch-btn" style="background-color: transparent; border: 2px solid var(--accent-color); color: white; margin-left: 15px;">Contact Me</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Typing animation styles */
+    .typing-glitch {
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid var(--accent-color);
+        animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    }
+    
+    .typing-accent {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .typing-accent::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background: var(--accent-color);
+        mix-blend-mode: multiply;
+        animation: typing 1.5s steps(20, end) 3.5s forwards, glitch-flicker 0.3s linear 5;
+    }
+    
+    .typing-subtitle {
+        overflow: hidden;
+        white-space: nowrap;
+        width: 0;
+        animation: typing 3s steps(40, end) 5s forwards, blink-caret .75s step-end 5s infinite;
+    }
+    
+    .typing-subtitle-2 {
+        overflow: hidden;
+        white-space: nowrap;
+        width: 0;
+        animation: typing 4s steps(60, end) 8.5s forwards, blink-caret .75s step-end 8.5s infinite;
+    }
+    
+    /* Glitch effect that happens during typing */
+    @keyframes glitch-flicker {
+        0%, 100% { 
+            transform: translate(0);
+            opacity: 0.3;
+        }
+        20% { 
+            transform: translate(-2px, 2px);
+            opacity: 0.5;
+        }
+        40% { 
+            transform: translate(2px, -1px);
+            opacity: 0.4;
+        }
+        60% { 
+            transform: translate(-1px, 1px);
+            opacity: 0.6;
+        }
+        80% { 
+            transform: translate(1px, -2px);
+            opacity: 0.5;
+        }
+    }
+    
+    /* Typing effect */
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+    
+    /* Cursor blink effect */
+    @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: var(--accent-color); }
+    }
+    
+    /* Button glitch effect on hover */
+    .glitch-btn:hover {
+        animation: glitch-effect 0.3s linear infinite;
+    }
+    
+    @keyframes glitch-effect {
+        0% { transform: translate(0); }
+        20% { transform: translate(-2px, 2px); }
+        40% { transform: translate(-2px, -2px); }
+        60% { transform: translate(2px, 2px); }
+        80% { transform: translate(2px, -2px); }
+        100% { transform: translate(0); }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set the text to be typed
+        const accentText = "Nqubeko Funda";
+        const subtitle1 = "AI/ML Engineer | Network Engineer | Problem Solver";
+        const subtitle2 = "Building intelligent solutions to complex problems with machine learning and AI";
+        
+        // Set the text content after a slight delay to allow CSS animations to start
+        setTimeout(() => {
+            document.querySelector('.typing-accent').textContent = accentText;
+            document.querySelector('.typing-subtitle').textContent = subtitle1;
+            document.querySelector('.typing-subtitle-2').textContent = subtitle2;
+        }, 100);
+    });
+</script>
 
     <!-- About Section -->
     <section class="section" id="about">
